@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Card from "./components/card";
+import Card from "./components/Card";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 
