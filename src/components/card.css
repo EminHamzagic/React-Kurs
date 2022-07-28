@@ -1,0 +1,63 @@
+.card {
+  width: 23%;
+  height: 70%;
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 10px;
+  padding: 25px;
+  background-color: white;
+  transition: all 0.5s ease;
+}
+
+.card:hover {
+  transform: translate(5px, -5px);
+}
+
+.card button {
+  width: 70%;
+  height: 50px;
+  border: none;
+  border-radius: 50px;
+  color: white;
+  background-color: black;
+  cursor: pointer;
+}
+
+.card p {
+  text-align: center;
+  /* margin: 10px; */
+}
+
+.card h1 {
+  font-size: 30px;
+  text-align: center;
+}
+
+.card img {
+  width: 80px;
+  height: 80px;
+}
+
+.background {
+  background-color: black;
+  width: 23%;
+  height: 70%;
+  border-radius: 10px;
+  position: absolute;
+  z-index: -1;
+}
+
+.background:hover {
+  transform: translate(-5px, -5px);
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
