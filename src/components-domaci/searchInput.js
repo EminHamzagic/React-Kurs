@@ -1,12 +1,21 @@
+import { useState } from "react";
+
 export default function SearchInput(props) {
+  const [text, setText] = useState("Submit");
   return (
     <div>
       <input
         onChange={(el) => {
-          props.getInput(el.target.value);
+          setText(el.target.value);
         }}
       ></input>
-      <button>{props.btn}</button>
+      <button
+        onClick={() => {
+          props.getInput(text);
+        }}
+      >
+        Submit
+      </button>
     </div>
   );
 }

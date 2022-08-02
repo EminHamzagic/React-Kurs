@@ -1,17 +1,19 @@
 import SearchInput from "./searchInput";
+import { useState } from "react";
 
 export default function App() {
-  var BtnText = "Submit";
-
+  var [text, setText] = useState("HE");
   const getInputText = (input) => {
-    BtnText = input;
-    console.log(input);
+    setText((prev) => {
+      console.log(prev);
+      return input;
+    });
   };
 
   return (
     <div>
-      <SearchInput btn={BtnText} getInput={getInputText} />
-      <h1>{BtnText}</h1>
+      <SearchInput getInput={getInputText} />
+      <h1>{text}</h1>
     </div>
   );
 }
