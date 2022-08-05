@@ -1,0 +1,16 @@
+.row {
+  display: flex;
+}
+
+.square {
+  border: 1px solid black;
+  border-collapse: collapse;
+  width: 200px;
+  height: 200px;
+  font-size: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+  user-select: none;
+}
