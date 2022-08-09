@@ -4,6 +4,8 @@ import "../css/calculator.css";
 export default function Calculator() {
   const [expression, setExpression] = useState("");
 
+  const operations = "+-*/.";
+
   const changeScreen = (value) => {
     setExpression((prev) => {
       return prev + value;
@@ -17,9 +19,11 @@ export default function Calculator() {
         id="del"
         className="btn"
         onClick={(e) => {
-          setExpression((prev) => {
-            return prev.slice(0, prev.length - 1);
-          });
+          if (expression !== "") {
+            setExpression((prev) => {
+              return prev.slice(0, prev.length - 1);
+            });
+          }
         }}
       >
         del
@@ -55,7 +59,8 @@ export default function Calculator() {
         id="+"
         className="btn"
         onClick={(e) => {
-          changeScreen(e.target.id);
+          if (!operations.includes(expression[expression.length - 1]))
+            changeScreen(e.target.id);
         }}
       >
         +
@@ -91,7 +96,8 @@ export default function Calculator() {
         id="-"
         className="btn"
         onClick={(e) => {
-          changeScreen(e.target.id);
+          if (!operations.includes(expression[expression.length - 1]))
+            changeScreen(e.target.id);
         }}
       >
         -
@@ -127,7 +133,8 @@ export default function Calculator() {
         id="*"
         className="btn"
         onClick={(e) => {
-          changeScreen(e.target.id);
+          if (!operations.includes(expression[expression.length - 1]))
+            changeScreen(e.target.id);
         }}
       >
         *
@@ -136,7 +143,8 @@ export default function Calculator() {
         id="."
         className="btn"
         onClick={(e) => {
-          changeScreen(e.target.id);
+          if (!operations.includes(expression[expression.length - 1]))
+            changeScreen(e.target.id);
         }}
       >
         .
@@ -154,7 +162,7 @@ export default function Calculator() {
         id="="
         className="btn"
         onClick={() => {
-          setExpression(eval(expression));
+          setExpression(eval(expression).toString());
         }}
       >
         =
@@ -163,7 +171,8 @@ export default function Calculator() {
         id="/"
         className="btn"
         onClick={(e) => {
-          changeScreen(e.target.id);
+          if (!operations.includes(expression[expression.length - 1]))
+            changeScreen(e.target.id);
         }}
       >
         /

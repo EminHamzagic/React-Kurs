@@ -1,12 +1,12 @@
 .container {
   width: 25%;
   height: 70%;
-  border: 1px solid black;
+  border: 1px solid rgb(104, 104, 104);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   gap: 1px;
-  background-color: black;
+  background-color: rgb(104, 104, 104);
 }
 
 .screen {
@@ -30,4 +30,12 @@
   justify-content: center;
   cursor: pointer;
   border: none;
+}
+
+.btn:hover {
+  background-color: rgb(230, 230, 230);
+}
+
+.btn:active {
+  background-color: rgb(160, 160, 160);
 }
