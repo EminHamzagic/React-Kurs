@@ -19,3 +19,8 @@
   font-size: 35px;
   padding-left: 22px;
 }
+
+.wordCont {
+  display: flex;
+  font-size: 35px;
+}
