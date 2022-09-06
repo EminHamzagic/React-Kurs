@@ -26,17 +26,28 @@ export default function Header() {
             React Vezbe
           </Typography>
           <Button color="inherit">
-            <Link style={{ color: "white" }} to="/">
+            <Link style={{ color: "white", textDecoration: "none" }} to="/">
+              ToDo
+            </Link>
+          </Button>
+          <Button color="inherit">
+            <Link
+              style={{ color: "white", textDecoration: "none" }}
+              to="/calculator"
+            >
               Calculator
             </Link>
           </Button>
           <Button color="inherit">
-            <Link style={{ color: "white" }} to="/xo">
+            <Link style={{ color: "white", textDecoration: "none" }} to="/xo">
               XO
             </Link>
           </Button>
           <Button color="inherit">
-            <Link style={{ color: "white" }} to="/hangman">
+            <Link
+              style={{ color: "white", textDecoration: "none" }}
+              to="/hangman"
+            >
               Hangman
             </Link>
           </Button>

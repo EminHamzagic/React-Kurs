@@ -1,7 +1,3 @@
-let i = 15;
+var a = ["A", "B"];
 
-switch (i) {
-  case i % 5 === 0:
-    console.log("object");
-    break;
-}
+console.log(Boolean(a.toLowerCase().includes("a")));

@@ -13,7 +13,7 @@ export default function Calculator() {
   };
 
   return (
-    <div className="container">
+    <div className="calcContainer">
       <div className="screen">{expression}</div>
       <button
         id="del"
