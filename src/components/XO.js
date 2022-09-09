@@ -1,5 +1,7 @@
 import { useState } from "react";
 import "../css/XO.css";
+import ThemeContext from "../Contexts/ThemeContext";
+import { useContext } from "react";
 
 const winningCombinations = [
   ["00", "01", "02"],
@@ -20,6 +22,8 @@ const Game = () => {
   ]);
   const [isFirstPlayer, setIsFirstPlayer] = useState(true);
   const [winningPlayer, setWinningPlayer] = useState("");
+
+  const theme = useContext(ThemeContext);
 
   const handleOnClick = (i, j) => {
     let xoCopy = [...XO];
@@ -63,8 +67,20 @@ const Game = () => {
   };
 
   return (
-    <div>
-      <h1>{winningPlayer}</h1>
+    <div
+      style={{
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: theme ? "rgb(17,17,17)" : "white",
+      }}
+    >
+      <h1 style={{ color: theme ? "white" : "rgb(17,17,17)" }}>
+        {winningPlayer}
+      </h1>
       {XO.map((row, i) => {
         return (
           <div key={row.toString() + i.toString()} className="row">
@@ -75,6 +91,10 @@ const Game = () => {
                   id={i.toString() + j.toString()}
                   onClick={() => handleOnClick(i, j)}
                   className="square"
+                  style={{
+                    border: `1px solid ${theme ? "white" : "rgb(17,17,17)"}`,
+                    color: theme ? "white" : "rgb(17,17,17)",
+                  }}
                 >
                   {square}
                 </div>

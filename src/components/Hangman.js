@@ -1,12 +1,15 @@
 import { useState, useEffect } from "react";
 import "../css/hangman.css";
+import ThemeContext from "../Contexts/ThemeContext";
+import { useContext } from "react";
 
 export default function Hangman() {
-  const [tries, setTries] = useState(6);
+  const [tries, setTries] = useState(10);
   const [word, setWord] = useState([]);
   const [guessWord, setGuessWord] = useState([]);
   const [resetVal, setResetVal] = useState(false);
   const [isDisabled, setIsDisabled] = useState(false);
+  const theme = useContext(ThemeContext);
 
   const checkChar = (e) => {
     if (e.keyCode == 13) {
@@ -32,7 +35,7 @@ export default function Hangman() {
   };
 
   useEffect(() => {
-    setTries(6);
+    setTries(10);
     fetch(`https://random-words-api.vercel.app/word`)
       .then((response) => response.json())
       .then((data) => {
@@ -46,7 +49,10 @@ export default function Hangman() {
   }, [resetVal]);
 
   return (
-    <div className="hangmanContainer">
+    <div
+      style={{ backgroundColor: theme ? "rgb(17, 17, 17)" : "white" }}
+      className="hangmanContainer"
+    >
       <div className="infoAndInput">
         <input
           disabled={isDisabled}
@@ -54,11 +60,18 @@ export default function Hangman() {
           maxLength={1}
           type="text"
         ></input>
-        <h1>Number of tries left: {tries}</h1>
+        <h1 style={{ color: theme ? "white" : "rgb(17, 17, 17)" }}>
+          Number of tries left: {tries}
+        </h1>
       </div>
       <div className="wordCont">
         {guessWord.map((char, index) => (
-          <p key={char + index.toString()}>{char}</p>
+          <p
+            style={{ color: theme ? "white" : "rgb(17, 17, 17)" }}
+            key={char + index.toString()}
+          >
+            {char}
+          </p>
         ))}
       </div>
       <button

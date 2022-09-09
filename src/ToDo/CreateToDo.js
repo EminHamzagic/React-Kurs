@@ -1,5 +1,7 @@
 import { Grid, Typography, TextField, Button } from "@mui/material";
 import React, { useState } from "react";
+import { useContext } from "react";
+import ThemeContext from "../Contexts/ThemeContext";
 
 export default function CreateToDo(props) {
   const [createTask, setCreateTask] = useState({
@@ -7,6 +9,8 @@ export default function CreateToDo(props) {
     desc: "",
     date: "",
   });
+
+  const theme = useContext(ThemeContext);
 
   const handleOnChange = (value, inputType) => {
     setCreateTask({ ...createTask, [inputType]: value });
@@ -21,7 +25,11 @@ export default function CreateToDo(props) {
       rowSpacing={2}
     >
       <Grid item xs={6}>
-        <Typography variant="h4" component="h2">
+        <Typography
+          // color={theme ? "white" : "rgb(17,17,17)"}
+          variant="h4"
+          component="h2"
+        >
           Create ToDo Task
         </Typography>
       </Grid>

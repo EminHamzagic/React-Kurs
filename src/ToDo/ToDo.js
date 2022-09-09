@@ -2,8 +2,12 @@ import { Grid } from "@mui/material";
 import CreateToDo from "./CreateToDo.js";
 import React, { useState } from "react";
 import ToDoList from "./ToDoList.js";
+import ThemeContext from "../Contexts/ThemeContext.js";
+import { useContext } from "react";
 
 export default function ToDo() {
+  const theme = useContext(ThemeContext);
+
   const [tasks, setTasks] = useState([
     {
       name: "Uci nemacki",
@@ -16,15 +20,29 @@ export default function ToDo() {
     setTasks([...tasks, newTask]);
   };
 
+  const isDarkThemeOn = () => {
+    if (theme) {
+      return "rgb(17, 17, 17)";
+    } else return "white";
+  };
+
   return (
-    <Grid container rowSpacing={3}>
-      <Grid item xs={6}>
-        <CreateToDo addNewTask={addTask} />
+    <div
+      style={{
+        width: "100%",
+        height: "100%",
+        backgroundColor: isDarkThemeOn(),
+      }}
+    >
+      <Grid container rowSpacing={3}>
+        <Grid item xs={6}>
+          <CreateToDo addNewTask={addTask} />
+        </Grid>
+        <Grid item xs={6}>
+          <ToDoList data={tasks} />
+        </Grid>
+        <Grid item xs={6}></Grid>
       </Grid>
-      <Grid item xs={6}>
-        <ToDoList data={tasks} />
-      </Grid>
-      <Grid item xs={6}></Grid>
-    </Grid>
+    </div>
   );
 }
