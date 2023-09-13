@@ -55,6 +55,11 @@ export default function Hangman() {
     >
       <div className="infoAndInput">
         <input
+          style={{
+            color: theme ? "white" : "rgb(17, 17, 17)",
+            backgroundColor: theme ? "rgb(17, 17, 17)" : "white",
+            borderColor: theme ? "white" : "rgb(17, 17, 17)",
+          }}
           disabled={isDisabled}
           onKeyDown={checkChar}
           maxLength={1}
@@ -77,6 +82,7 @@ export default function Hangman() {
       <button
         className="resetBtn"
         onClick={() => {
+          console.log(word);
           setIsDisabled(false);
           setResetVal(!resetVal);
         }}

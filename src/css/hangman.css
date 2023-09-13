@@ -18,12 +18,18 @@
 }
 
 .infoAndInput input {
-  width: 5%;
+  width: 4.5%;
   height: 100%;
   font-size: 35px;
   padding-left: 17px;
   font-family: sans-serif;
   margin-right: 50px;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+.infoAndInput input:focus {
+  outline: none;
 }
 
 .wordCont {

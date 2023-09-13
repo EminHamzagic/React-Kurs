@@ -20,18 +20,12 @@ export default function ToDo() {
     setTasks([...tasks, newTask]);
   };
 
-  const isDarkThemeOn = () => {
-    if (theme) {
-      return "rgb(17, 17, 17)";
-    } else return "white";
-  };
-
   return (
     <div
       style={{
         width: "100%",
         height: "100%",
-        backgroundColor: isDarkThemeOn(),
+        backgroundColor: theme ? "rgb(17, 17, 17)" : "white",
       }}
     >
       <Grid container rowSpacing={3}>

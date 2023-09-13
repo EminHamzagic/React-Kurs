@@ -52,6 +52,14 @@ export default function Header({ handleChange }) {
               Hangman
             </Link>
           </Button>
+          <Button color="inherit">
+            <Link
+              style={{ color: "white", textDecoration: "none" }}
+              to="/pokedex"
+            >
+              Pokedex
+            </Link>
+          </Button>
           <ThemeBtn handleSwitch={handleChange} />
         </Toolbar>
       </AppBar>

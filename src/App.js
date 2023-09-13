@@ -8,6 +8,7 @@ import { Route } from "react-router-dom";
 import XO from "./components/XO";
 import ThemeContext from "./Contexts/ThemeContext";
 import { useState } from "react";
+import Pokedex from "./Pokemon App/Pokedex.js";
 
 export default function App() {
   const [theme, setTheme] = useState(false);
@@ -37,6 +38,10 @@ export default function App() {
           <Route
             path="/hangman"
             render={(props) => <Hangman {...props} theme={theme} />}
+          />
+          <Route
+            path="/pokedex"
+            render={(props) => <Pokedex {...props} theme={theme} />}
           />
         </ThemeContext.Provider>
       </div>
